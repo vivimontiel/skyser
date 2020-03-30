@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="formulaire/css/reset.css">
+    <link rel="stylesheet" href="formulaire/css/style.css">
+
+    <!-- JS RESSOURCES -->
+    <script src="js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/core.js"></script>
+
+
+    <title>Share the sky with skyser</title>
+</head>
+
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div id="dialogAdd">
+    <p>Your flight has been successfully added !</p>
+</div>
+
+<script>getListPlane()</script>
+
+<div class="container-fluid" style="background-color: transparent;">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6" style="background-color: rgba(255,255,255,0.4);">
+            <main>
+                <form class="cd-form floating-labels" id="formAddFlight" onsubmit="return addFlight()">
+                    <h1 class="display-4 text-center">Add a Flight</h1>
+                    <div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">
+                        <h1 class="display-5 text-right font-weight-bold">Flight Information</h1>
+
+                        <div class="icon">
+                            <ul class="cd-form-list">
+                                <li style="width: 400px; height: 36px;;">
+                                    <label class="cd-label" >Departure</label>
+                                    <input class="company" type="text" name="departure_location" required></input>
+                                </li>
+                                <li style="margin-top: 20px;">
+                                    <input type="checkbox" name="balade" id="cd-radio-1">
+                                    <label for="balade">Stroll</label>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="icon">
+                            <label class="cd-label">Destination</label>
+                            <input class="company" type="text" name="arrival_location" required>
+                        </div>
+
+                        <div class="icon">
+                            <label class="cd-label">Price</label>
+                            <input class="company" type="number" name="price" required>
+                        </div>
+
+                        <div class="icon">
+                            <label class="cd-label">Meeting point</label>
+                            <input class="message" type="text" name="meeting_point" required>
+                        </div>
+
+                    </div>
+                    <br/>
+
+                    <div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">
+                        <h1 class="display-5 text-right font-weight-bold">Departure details</h1>
+
+                        <div class="icon" id="blockdate">
+                            <input class="date" type="date" name="departure_date" required>
+                            <input class="time" type="time" name="departure_time" required>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">
+                        <h1 class="display-5 text-right font-weight-bold">Destination details</h1>
+
+                        <div class="icon" id="blockdate">
+                            <input class="date" type="date" name="arrival_date" required>
+                            <input class="time" type="time" name="arrival_time" required>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">
+                        <h1 class="display-5 text-right font-weight-bold">Plane Information</h1>
+
+                        <div class="icon">
+                            <label class="cd-label">Number of available seats</label>
+                            <input class="message" type="text" name="available_seats" id="number-seats" required>
+                        </div>
+
+                        <div>
+                            <label class="cd-label">Select a plane</label>
+                            <p class="cd-select icon">
+                                <select class="plane-menu" id="dynamicListPlane" name="id_plane">
+
+                                </select>
+                            </p>
+                            <script>
+                                console.log("enter dynamic ListPlane");
+                                var list = JSON.parse(localStorage.getItem("currentListPlane"));
+                                area = document.getElementById("dynamicListPlane");
+                                node1 = document.createElement("option");
+                                node1.innerHTML =
+                                    '<option value="">Select your plane</option>';
+                                area.appendChild(node1);
+                                for (var i = 0; i < list.length; i++) {
+                                    area = document.getElementById("dynamicListPlane");
+                                    node1 = document.createElement("option");
+                                    node1.innerHTML =
+                                        '<option value="'+i+'">'+list[i].id+'</option>';
+                                    area.appendChild(node1);
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">
+                        <h1 class="display-5 text-right font-weight-bold">Instructions</h1>
+
+                        <div class="icon">
+                            <label class="cd-label" for="cd-textarea">If you want to add more details for the
+                                passengers...</label>
+                            <textarea class="message" name="commentary" id="cd-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" value="CONFIRM" name="submit">
+                    </div>
+                </form>
+
+            </main>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

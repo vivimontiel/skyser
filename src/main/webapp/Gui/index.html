@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="formulaire/css/reset.css">
+	<link rel="stylesheet" href="formulaire/css/style.css">
+
+	<!-- JS RESSOURCES -->
+	<script src="js/modernizr.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/core.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<title>Share the sky with skyser</title>
+</head>
+<body>
+	<header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+	<div class="cd-main-content">
+
+		<form class="cd-form floating-labels" method="get" id="formIndex" onsubmit="return searchFlight()">
+			<!--<div class="error-message">
+				<p>this field will be hidden, shows only error messages</p>
+			</div>-->
+			<h1 id="main-message">Find your next adventure...</h1>
+
+			<div class="icon">
+				<ul class="cd-form-list">
+					<li style="width: 455px; height: 36px;;">
+						<label class="cd-label" >Leaving from...</label>
+						<input class="company" type="text" name="departure_location" required></input>
+					</li>
+
+					<li style="margin-top: 20px;">
+						<input type="checkbox" name="balade" id="cd-radio-1">
+						<label for="balade">Stroll</label>
+					</li>
+				</ul>
+			</div>
+
+
+
+			<div class="icon">
+				<label class="cd-label">Destination...</label>
+				<input class="company" name="arrival_location" type="text"></input>
+			</div>
+
+			<div class="icon">
+				<input class="date" type="date" name="departure_date" id="date">
+			</div>
+
+			<div>
+				<input type="submit" value="Search" >
+			</div>
+		</form>
+
+		<div id="result"></div>
+
+	</div>
+
+	<footer class="footer" id="footerBar">
+		<div>
+			<a href="About.html"><p>About Us</p></a>
+			<a href="index.html"><p>Homepage</p></a>
+			<a href="Sign_up.html"><p>Become a Member</p></a>
+			<a href="Profile.html"><p>Login</p></a>
+			<a href="Contact.html"><p>Contact Us</p></a>
+		</div>
+	</footer>
+
+
+
+</body>
+
+
+</html>

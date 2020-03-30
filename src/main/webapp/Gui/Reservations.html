@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+    <link rel="stylesheet" href="formulaire/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="formulaire/css/style.css"> <!-- Resource style -->
+    <script src="formulaire/js/modernizr.js"></script> <!-- Modernizr -->
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/core.js"></script>
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div class="container-fluid pt-3">
+    <main class="cd-main-content">
+        <div class="row">
+            <div class="col-2"></div>
+
+            <div class="col-8" style="background-color: rgba(255,255,255,0.4);">
+                <h1 class="display-4 text-center mt-5">Reservations</h1>
+                <div class="container mb-5" id="demo">
+
+                    <div class="row">
+                        <div class="col-0"></div>
+
+                        <div class="cd-pricing-container cd-full-width cd-secondary-theme col-12">
+                            <ul>
+                                <li class="cd-pricing-list" id="listbooking" >
+
+                                    <script>
+                                        getBookingList();
+                                        var list = localStorage.getItem("bookList");
+                                        if (list != null) {
+                                            var obj = JSON.parse(list);
+                                            for (var i = 0; i < obj.length; i++) {
+                                                var html = document.getElementById("listbooking");
+                                                var head = 
+                                                    '<li class="mb-5" id="'+obj[i].flight.id+'" onclick="listToBook(this)">'+
+                                                        '<a>'+
+                                                            '<header class="cd-pricing-header">'+
+                                                                '<h2 class="text-right">'+obj[i].flight.departure_date+'</h2>'+
+
+                                                                '<div class="cd-price">'+
+                                                                    '<span class="cd-value">'+obj[i].flight.departure_location+' - '+obj[i].flight.arrival_location+'</span>'+
+                                                                '</div>'+
+                                                            '</header>'+
+                                                        '</a>'+
+
+                                                        '<div class="cd-reservation-body">';
+                                                for(var j = 0; j < obj[i].books.length; j++){
+                                                    head +=
+                                                            '<ul class="cd-reservation-features text-center">'+
+                                                                '<div class="border mt-3 mb-3" id="reservation-element">'+
+                                                                    '<li><a href="Profile.html"><img src="img/photo13.png" class="image--cover--reservation" alt="Profile"></a></li>'+
+                                                                    '<li id="reservation-text">First Name<em id="first_name">'+obj[i].books[j].prenom+'</em></li>'+
+                                                                    '<li id="reservation-text">Last Name<em id="last_name">'+obj[i].books[j].nom+'</em></li>'+
+                                                                    '<li id="reservation-text-seats">Seats<em id="nb_seats">'+obj[i].books[j].nbr_places+'</em></li>'+
+                                                                    '<li id="reservation-text">'+
+                                                                        '<button class="btn btn-primary btn-lg btn-success" id="'+obj[i].books[j].id_book+'" name="confirmPassenger" type="button" onclick="reservationConfirm(this)">Accept</button>'+
+                                                                        '<button class="btn btn-primary btn-lg btn-danger" id="'+obj[i].books[j].id_book+'" name="declinePassenger" type="button" onclick="reservationDecline(this)">Decline</button>'+
+                                                                    '</li>'+
+                                                                '</div>'+
+                                                            '</ul>';
+                                                }
+                                                head+=     '</div>'+
+                                                    '</li>';
+                                                html.innerHTML += head;
+                                            }
+                                        }else{
+                                            alert("No reservations nothing to show !")
+                                        }
+
+                                    </script>
+ 
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-0"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+    </main>
+</div>
+
+
+<script src="formulaire/js/jquery-2.1.1.js"></script>
+<script src="formulaire/js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

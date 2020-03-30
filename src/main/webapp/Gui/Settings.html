@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- CSS RESSOURCES -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="formulaire/css/reset.css">
+	<link rel="stylesheet" href="formulaire/css/style.css">
+
+	<!-- JS RESSOURCES -->
+	<script src="js/modernizr.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/core.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<title>Share the sky with skyser</title>
+</head>
+<body>
+	<header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+	<div class="container-fluid" style="background-color: transparent;" id="dynamicEditProfile">
+		<script>
+			var obj = JSON.parse(localStorage.getItem("currentUser"));
+			var area = document.getElementById("dynamicEditProfile");
+			var node = document.createElement("div");
+			node.innerHTML =
+					'<div class="row">' +
+					'<div class="col-3"></div>' +
+					'<div class="col-6" style="background-color: rgba(255,255,255,0.4);">' +
+					'<main>' +
+					'<form class="cd-form floating-labels" id="formEditProfile" onsubmit="return editProfile()">' +
+					'<h1 class="display-4 text-center">Profile Settings</h1>' +
+
+					'<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+					'<h1 class="display-5 text-right font-weight-bold">Name</h1>' +
+					'<div class="icon">' +
+					'<label class="cd-label">First Name</label>' +
+					'<input class="company" type="text" name="first_name" value="'+obj.first_name+'" required>' +
+					'</div>' +
+					'<div class="icon">' +
+					'<label class="cd-label">Last Name</label>' +
+					'<input class="company" type="text" name="last_name" value="'+obj.last_name+'"required>' +
+					'</div>' +
+
+					'</div>' +
+
+					'<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+					'<h1 class="display-5 text-right font-weight-bold">Personal Address</h1>' +
+					'<div class="icon">' +
+					'<label class="cd-label">Home Address</label>' +
+					'<input class="company" type="text" name="home_address" value="'+obj.home_address+'" required>' +
+					'</div>' +
+					'<div class="icon">' +
+					'<label class="cd-label">Phone Number</label>' +
+					'<input class="company" type="text" name="phone_number" value="'+obj.phone_number+'" required>' +
+					'</div>' +
+					'</div>' +
+
+
+					'<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+					'<h1 class="display-5 text-right font-weight-bold">Billing Information</h1>' +
+					'<div class="icon">' +
+					'<label class="cd-label">Credit Card Number</label>' +
+					'<input class="company" type="text" name="billing_information" value="'+obj.billing_information+'" required>' +
+					'</div>' +
+					'</div>' +
+
+
+					'<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+					'<h1 class="display-5 text-right font-weight-bold">Password Settings</h1>' +
+
+					'<div class="icon">' +
+					'<label class="cd-label">New Password</label>' +
+					'<input class="company" type="password" name="password" value="'+obj.password+'"required>' +
+					'</div>' +
+
+					'</div>' +
+					'<input type="submit" value="SAVE CHANGES" name="submit">' +
+					'</form>' +
+					'</main>' +
+
+					'<main class="pt-5 pb-2" >' +
+					'<div class="text-left mb-5">' +
+					'<button class="btn btn-light btn-sm" id="'+localStorage.getItem("pseudo")+'" name="delete_account" type="button" onclick="deleteAccount(this);">Delete My Account</button>' +
+					'</div>' +
+					'</main>' +
+					'</div>' +
+					'<div class="col-3"></div>' +
+					'</div>';
+			area.appendChild(node);
+		</script>
+
+	</div>
+
+	<footer class="footer" id="footerBar">
+		<div>
+			<a href="About.html"><p>About Us</p></a>
+			<a href="index.html"><p>Homepage</p></a>
+			<a href="Sign_up.html"><p>Become a Member</p></a>
+			<a href="index.html"><p>Login</p></a>
+			<a href="Contact.html"><p>Contact Us</p></a>
+			<a href="Account_settings.html"><p>Account Settings</p></a>
+		</div>
+	</footer>
+
+</body>
+
+</html>

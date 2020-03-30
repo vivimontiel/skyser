@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="formulaire/css/reset.css">
+    <link rel="stylesheet" href="formulaire/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- JS RESSOURCES -->
+    <script src="js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/core.js"></script>
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div id="dynamic-profile"></div>
+<script>
+    //getProfile();
+    if (localStorage.getItem("pseudo") != null) {
+        if (localStorage.getItem("currentPilot") != null) {
+            getListPlane();
+            console.log("pilot");
+            var user = JSON.parse(localStorage.getItem("currentUser"));
+            var pilot = JSON.parse(localStorage.getItem("currentPilot"));
+            area = document.getElementById("dynamic-profile");
+            node1 = document.createElement("div");
+            node1.innerHTML =
+                '<div class="container-fluid pt-5" style="background-color: transparent;">' +
+                '<div class="row pt-5">' +
+                '<div class="col-3"></div>' +
+                '<div class="col-6" style="background-color: rgba(255,255,255,0.4);">' +
+                '<main class="pt-5">' +
+                '<div class="mb-4 text-right">' +
+                '<a href="Settings.html">' +
+                '<button class="btn btn-primary btn-lg" name="settings" type="button">Edit</button>' +
+                '</a>' +
+                '</div>' +
+                '<div>' +
+                '<div id="profile-pic">' +
+                '<img src="img/photo13.png" class="image--cover">' +
+                '<h1 class="display-4 text-center" id="name_person">' + user.first_name + ' ' + user.last_name + '</h1>' +
+                '<h1 class="display-4 text-center" id="role">Pilot</h1>' +
+                '<h1 class="display-5 text-center">' + pilot.experience_hours + ' experience hours</h1>' +
+                '</div>' +
+
+                '</div>' +
+                '<br/>' +
+                '<div>' +
+                '<h1 class="display-5 text-right font-weight-bold pb-4">Personal details</h1>' +
+                '<div class="container-fluid mb-5" id="profile_element">' +
+                '<div class="row pb-1 pt-4">' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Phone Number</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="phone_number">' + user.phone_number + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Email</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="email">' + user.email + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Home Address</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="home_address">' + user.home_address + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">License Number</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="license" name="license">' + pilot.license_number + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Credit Card</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="billing_information">' + user.billing_information + '</h1>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<br/>' +
+
+                '<div>' +
+                '<h1 class="display-5 text-right font-weight-bold pb-4">Flights</h1>' +
+                '<div class="container-fluid" id="profile_element">' +
+                '<div class="row pb-1 pt-4">' +
+                '<div class="col-6 mt-2 mb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Past Flights</h1>' +
+                '</div>' +
+                '<div class="col-6 mb-4">' +
+
+                '<button class="btn btn-primary btn-lg" name="settings" type="button" onclick="myPasteFlight()">View Past </button>' +
+
+                '</div>' +
+
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Planes</h1>' +
+                '</div>' +
+                '<div>' +
+                '<div class="col" id="dynamicListPlane">' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<br/>' +
+
+                '</main>' +
+                '</div>' +
+                '</div>' +
+                '<div class="cd-pricing-container cd-full-width cd-secondary-theme col-12">' +
+                '<ul class="cd-pricing-list" id="list-plane">' +
+                '</div>';
+            area.appendChild(node1);
+            if (localStorage.getItem("currentListPlane") != null) {
+                var areaPlane = document.getElementById("dynamicListPlane");
+                var list = localStorage.getItem("currentListPlane");
+                var obj = JSON.parse(list);
+                for (var i = 0; i < obj.length; i++) {
+                    var node2 = document.createElement("div");
+                    node2.innerHTML =
+                        '<div class="col-1"></div>' +
+                        '<div class="container-fluid col-10 pt-4 pb-4 mb-3" id="smr_element">' +
+                        '<div>' +
+                        '<div class="text-right">' +
+                        '<a href="Profile.html"><button class="btn btn-primary btn-sm" name="delete_airplane" type="button">Delete</button></a>' +
+                        '</div>' +
+                        '<h1 class="display-5 text-left font-weight-bold" id="plane_atc">'+obj[i].atc_number+'</h1>' +
+                        '<h1 class="display-5 text-left" id="plane_model">'+obj[i].model+'</h1>' +
+                        '<h1 class="display-5 text-left" id="Path_picture"></h1>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-1"></div>' +
+                        '</div>';
+                    areaPlane.appendChild(node2);
+                }
+            }
+        }
+        else {
+            console.log("user");
+            var user = JSON.parse(localStorage.getItem("currentUser"));
+            area = document.getElementById("dynamic-profile");
+            area.innerHTML =
+                '<div class="container-fluid pt-5" style="background-color: transparent;">' +
+                '<div class="row pt-5">' +
+                '<div class="col-3"></div>' +
+                '<div class="col-6" style="background-color: rgba(255,255,255,0.4);">' +
+                '<main class="pt-5">' +
+                '<div class="mb-4 text-right">' +
+                '<a href="Settings.html">' +
+                '<button class="btn btn-primary btn-lg mr-1" name="settings" type="button">Edit</button>' +
+                '</a>' +
+                '<a href="Upgrade.html">' +
+                '<button class="btn btn-primary btn-lg text-left" name="upgrade" type="button">Upgrade</button>' +
+                '</a>' +
+                '</div>' +
+                '<div>' +
+                '<div id="profile-pic">' +
+                '<img src="img/photo13.png" class="image--cover">' +
+                '<h1 class="display-4 text-center" id="name_person">' + user.first_name + ' ' + user.last_name + '</h1>' +
+                '<h1 class="display-4 text-center" id="role">Passenger</h1>' +
+                '</div>' +
+
+                '</div>' +
+                '<br/>' +
+
+                '<div>' +
+                '<h1 class="display-5 text-right font-weight-bold pb-4">Personal details</h1>' +
+                '<div class="container-fluid mb-5" id="profile_element">' +
+                '<div class="row pb-1 pt-4">' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Phone Number</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="phone_number">' + user.phone_number + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Email</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="email">' + user.email + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Home Address</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="home_address">' + user.home_address + '</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Credit Card</h1>' +
+                '</div>' +
+                '<div class="col-6 pb-4">' +
+                '<h1 class="display-5 text-left" id="billing_information">' + user.billing_information + '</h1>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<br/>' +
+
+                '<div>' +
+                '<h1 class="display-5 text-right font-weight-bold pb-4">Flights</h1>' +
+                '<div class="container-fluid" id="profile_element">' +
+                '<div class="row pb-1 pt-4">' +
+                '<div class="col-6 mt-2 mb-4">' +
+                '<h1 class="display-5 text-right font-weight-bold">Past Flights</h1>' +
+                '</div>' +
+                '<div class="col-6 mb-4">' +
+                '<a href="past_flights.html">' +
+                '<button class="btn btn-primary btn-lg" name="settings" type="button">View Past </button>' +
+                '</a>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<br/>' +
+
+                '</main>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+        }
+    }
+</script>
+
+
+</body>
+</html>

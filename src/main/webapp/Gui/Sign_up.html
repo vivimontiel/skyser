@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- JS RESSOURCES -->
+	<script src="js/modernizr.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/core.js"></script>
+	
+	<!-- CSS RESSOURCES -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="formulaire/css/reset.css">
+	<link rel="stylesheet" href="formulaire/css/style.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<title>Share the sky with skyser</title>
+</head>
+<body>
+	<header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+
+<div id="dialogAdd">
+	<p>Welcome to Skyser !</p>
+</div>
+<div class="container-fluid" style="background-color: transparent;">
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6" style="background-color: rgba(255,255,255,0.4);">
+			<main>
+				<form class="cd-form floating-labels" id="formSignUp" onsubmit="return signUp()">
+					<h1 class="display-4 text-center">Sign Up</h1>
+
+					<div class="icon">
+						<label class="cd-label">Email</label>
+						<input class="email" type="email" name="email" required>
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">Password</label>
+						<input class="password" name="password" type="password" required>
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">First Name</label>
+						<input class="user" type="text" name="first_name" required>
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">Last Name</label>
+						<input class="user" type="text" name="last_name" required>
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">Billing Information</label>
+						<input class="user" type="text" name="billing_information" required>
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">Phone Number</label>
+						<input class="user" type="text" name="phone_number">
+					</div>
+
+					<div class="icon">
+						<label class="cd-label">Home Address</label>
+						<input class="user" type="text" name="home_address">
+					</div>
+
+					<div>
+						<input type="submit" value="Sign up">
+					</div>
+				</form>
+
+			</main>
+		</div>
+		<div class="col-3 "></div>
+	</div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="formulaire/css/reset.css">
+    <link rel="stylesheet" href="formulaire/css/style.css">
+
+    <!-- JS RESSOURCES -->
+    <script src="js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/core.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div class="container-fluid" style="background-color: transparent;" id="dynamicFlight">
+
+</div>
+
+
+<script>
+    flight = localStorage.getItem("currentFlight");
+    obj = JSON.parse(flight);
+    area = document.getElementById("dynamicFlight");
+    node = document.createElement("div");
+    node.innerHTML =
+        '<div class="row">' +
+        '<div class="col-3"></div>' +
+        '<div class="col-6" style="background-color: rgba(255,255,255,0.4);">' +
+        '<main>' +
+        '<form class="cd-form floating-labels" id="formEditFlight" onsubmit="return editFlight()">' +
+        '<div class="mb-4 text-right">' +
+        '<a href="Reservations.html"><button class="btn btn-primary btn-lg" name="deleteFlight" type="button">Delete</button></a>' +
+        '</div>' +
+        '<h1 class="display-4 text-center">Modify Flight</h1>' +
+        '<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+        '<h1 class="display-5 text-right font-weight-bold">Flight Information</h1>' +
+
+        '<div class="icon">' +
+        '<label class="cd-label">Price</label>' +
+        '<input class="company" type="number" name="price" id="price" value="'+obj.price+'" required>' +
+        '</div>' +
+
+        '</div>' +
+        '<br/>' +
+
+        '<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+        '<h1 class="display-5 text-right font-weight-bold">Departure details</h1>' +
+
+        '<div class="icon" id="blockdate">' +
+        '<input class="date" type="date" name="departure_date" value="'+obj.departure_date+'" required>' +
+        '<input class="time" type="time" name="departure_time" value="'+obj.departure_time+'" required>' +
+        '</div>' +
+        '</div>' +
+        '<br/>' +
+
+        '<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+        '<h1 class="display-5 text-right font-weight-bold">Destination details</h1>' +
+
+        '<div class="icon" id="blockdate">' +
+        '<input class="date" type="date" name="arrival_date" value="'+obj.arrival_date+'" required>' +
+        '<input class="time" type="time" name="arrival_time" value="'+obj.arrival_time+'" required>' +
+        '</div>' +
+        '</div>' +
+        '<br/>' +
+
+        '<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+        '<h1 class="display-5 text-right font-weight-bold">Plane Information</h1>' +
+
+        '<div class="icon">' +
+        '<label class="cd-label">Number of available seats</label>' +
+        '<input class="message" type="text" name="available_seats" value="'+obj.available_seats+'" id="number-seats" required>' +
+        '</div>' +
+
+        '</div>' +
+        '<br/>' +
+
+        '<div class="rounded pt-5 pb-5 pl-5 pr-5" style="background-color: rgba(255,255,255,0.5);">' +
+        '<h1 class="display-5 text-right font-weight-bold">Instructions</h1>' +
+
+        '<div class="icon">' +
+        '<label class="cd-label" for="cd-textarea"></label>' +
+        '<textarea class="message" name="commentary" id="cd-textarea" ></textarea>' +
+        '</div>' +
+        '</div>' +
+        '<div>' +
+        '<input type="submit" value="CONFIRM" name="submit">' +
+        '</div>' +
+        '</form>' +
+
+        '</main>' +
+        '</div>' +
+        '<div class="col-3 "></div>' +
+        '</div>';
+        area.appendChild(node);
+
+</script>
+</body>
+</html>

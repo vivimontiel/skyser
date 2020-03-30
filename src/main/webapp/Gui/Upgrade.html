@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="formulaire/css/reset.css">
+    <link rel="stylesheet" href="formulaire/css/style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div class="container-fluid" style="background-color: transparent;">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6" style="background-color: rgba(255,255,255,0.4);">
+            <main>
+                <form class="cd-form floating-labels" id="formUpgrade" onsubmit="return upgradeToPilot()">
+                    <h1 class="display-4 text-center">Upgrade To Pilot</h1>
+                    <br/>
+                    <h1 class="text-center mb-5">
+                        <small class="font-weight-light">Please fill in the following fields</small>
+                    </h1>
+                    <br/>
+
+                    <div>
+                        <div class="icon">
+                            <label class="cd-label">License Number</label>
+                            <input class="company" id="licence" type="text" name="license_number" required>
+                        </div>
+
+                        <div class="icon">
+                            <label class="cd-label">Experience hours</label>
+                            <input class="hours" id="hours" type="number" name="experience_hours" required>
+                        </div>
+                        <br/>
+                        <input type="submit" value="CONFIRM" name="submit">
+                    </div>
+                </form>
+
+            </main>
+        </div>
+        <div class="col-3 "></div>
+    </div>
+</div>
+
+
+<!-- JS RESSOURCES -->
+<script src="js/modernizr.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/main.js"></script>
+<script src="js/core.js"></script>
+
+</body>
+</html>

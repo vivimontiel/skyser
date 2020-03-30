@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+	<link rel="stylesheet" href="formulaire/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="formulaire/css/style.css"> <!-- Resource style -->
+	<script src="formulaire/js/modernizr.js"></script> <!-- Modernizr -->
+
+	<title>Share the sky with skyser</title>
+</head>
+<body>
+	<header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper">
+			<ul class="cd-main-nav">
+				<li><a href="#0">About</a></li>
+				<li><a href="#0">My flights</a></li>
+				<li><a href="#0">Messages</a></li>
+				<li><a href="Profile.html">Profile</a></li>
+				<li><a href="index.html">Home page</a></li>
+				<li>
+					<a href="#2" class="cd-subnav-trigger"><span>Sign in</span></a>
+					<ul>
+						<a href="Sign_up.html">Don't have an account? Click here</a>
+						<li class="go-back"><a href="#0">Menu</a></li>
+
+						<li><form class="cd-form-login" method="post" action="connexion">
+								<li>
+									<input class="form-control" type="email" name="mail" placeholder="Email" required>
+								</li>
+								<li>
+									<input  class="form-control" type="password" name="pwd" placeholder="Password" required>
+								</li>
+								<li>
+									<button class="btn btn-light btn-lg" type="submit" name="connexion" value="Sign in">Sign in</button>
+								</li>
+						</form></li>
+
+						<li><a href="#4" class="placeholder">Placeholder</a></li>
+					</ul>
+				</li>
+			</ul> <!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+	<div class="cd-main-content">
+	<div class="container-fluid mt-5 pt-5" style="background-color: transparent; ">
+		<div class="row">
+			<div class="col-3 mt-5"></div>
+			<div class="col-6 mt-5 pb-5" style="background-color: rgba(255, 255, 255, 0.4);">
+				<main>
+					<h1 class="display-4 text-center mt-5 pb-2">Account Settings</h1>
+					<h1 class="text-center mb-5">
+						<small class="font-weight-light">Delete</small>
+					</h1>
+
+					<div class="row mb-5">
+						<div class="col-1"></div>
+						<div class="input-group-append col-10">
+							<h1 class="display-5 text-center mt-2 mr-4">To change your settings:</h1>
+							<button class="btn btn-secondary btn-lg" name="settings" type="button">Change My Settings</button>
+						</div>
+						<div class="col-1"></div>
+					</div>
+					<div class="row mb-5">
+						<div class="col-1"></div>
+						<div class="input-group-append col-10">
+							<h1 class="display-5 text-center mt-2 mr-4">To modify your photo:</h1>
+							<button class="btn btn-secondary btn-lg" name="delete_account" type="button">Change My Photo</button>
+							<button class="btn btn-secondary btn-lg" name="delete_photo" type="button">Delete My Photo</button>
+						</div>
+						<div class="col-1"></div>
+					</div>
+					<div class="row mb-5">
+						<div class="col-1"></div>
+						<div class="input-group-append col-10">
+							<h1 class="display-5 text-center mt-2 mr-4">To delete your account:</h1>
+							<button class="btn btn-secondary btn-lg" name="delete_account" type="button">Delete My Account</button>
+						</div>
+						<div class="col-1"></div>
+					</div>
+				</main>
+			</div>
+			<div class="col-3 mt-5"></div>
+		</div>
+	</div>
+	</div>
+
+	<footer class="footer" id="footerBar">
+		<div>
+			<a href="About.html"><p>About Us</p></a>
+			<a href="index.html"><p>Homepage</p></a>
+			<a href="Sign_up.html"><p>Become a Member</p></a>
+			<a href="index.html"><p>Login</p></a>
+			<a href="Contact.html"><p>Contact Us</p></a>
+			<a href="Account_settings.html"><p>Account Settings</p></a>
+		</div>
+	</footer>
+
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+	<script src="formulaire/js/jquery-2.1.1.js"></script>
+	<script src="formulaire/js/main.js"></script> <!-- Resource jQuery -->
+
+</body>
+</html>

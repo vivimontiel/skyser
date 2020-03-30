@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- CSS RESSOURCES -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="formulaire/css/reset.css">
+    <link rel="stylesheet" href="formulaire/css/style.css">
+
+    <!-- JS RESSOURCES -->
+    <script src="js/modernizr.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/core.js"></script>
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div id="dialogA">
+    <p>You will be receiving an email shortly with the pilot's confimation for your booking.</p>
+    <br/>
+    <p>Thanks for choosing Skyser !</p>
+</div>
+<body>
+<div id="flight-summary"></div>
+<script>
+    var obj = JSON.parse(localStorage.getItem("currentFlight"));
+    if(obj != null){
+        area = document.getElementById("flight-summary");
+        area.innerHTML =
+            '<div class="container-fluid mt-5 pt-5" style="background-color: transparent;">' +
+            '<div class="row">' +
+            '<div class="col-3 mt-5"></div>' +
+            '<div class="col-6 mt-5" style="background-color: rgba(255, 255, 255, 0.4);">' +
+            '<main>' +
+            '<div class="mt-4 text-right">' +
+            '<a href="Modify_flight.html"><button class="btn btn-primary btn-lg" name="modifyflight" type="button">Edit</button></a>' +
+            '</div>' +
+            '<h1 class="display-4 text-center pb-2">Flight Summary</h1>' +
+            '<h1 class="text-center mb-5">' +
+            '<small class="font-weight-light">Make a Reservation</small>' +
+            '</h1>' +
+
+
+            '<div>' +
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Pilot : </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left " id="pilot-name-surname">'+localStorage.getItem("summaryUserSurname")+' '+localStorage.getItem("summaryUserName")+'</h1>' +
+            '</div>' +
+            '</div>' +
+
+            '<div>' +
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Departure: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left " id="departure">'+obj["departure_location"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Destination: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="destination">'+obj["arrival_location"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Departure Date: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left " id="departure_date">'+obj["departure_date"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Departure Time: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="departure_time">'+obj["departure_time"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Destination Date: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left " id="destination_date">'+obj["arrival_date"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Destination Time: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="destination_time">'+obj["arrival_time"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Price: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="price">'+obj["price"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Available seats: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left font-weight-bold" id="available_seats">'+obj["available_seats"]+'/'+obj["total_seats"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Meeting Point: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="meeting_point">'+obj.meeting_point+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+
+
+            '<div class="row">' +
+            '<div class="col-1"></div>' +
+            '<div class="container-fluid col-10 pt-4 mb-3" id="smr_element">' +
+            '<div class="row pb-4">' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-right font-weight-bold">Instructions: </h1>' +
+            '</div>' +
+            '<div class="col-6">' +
+            '<h1 class="display-5 text-left" id="instructions">'+obj["commentary"]+'</h1>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-1"></div>' +
+            '</div>' +
+            '</div>' +
+
+            '<div class="row pb-5">' +
+            '<div class="col-4"></div>' +
+            '<div class="input-group col-4">' +
+            '<select class="input-group-text" id="number_seats_chosen">' +
+            '<option selected value="1">1 seat</option>' +
+            '<option value="2">2 seats</option>' +
+            '<option value="3">3 seats</option>' +
+            '<option value="4">4 seats</option>' +
+            '<option value="5">5 seats</option>' +
+            '</select>' +
+            '<div class="input-group-append">' +
+            '<button class="btn btn-primary btn-lg btn-block" id="'+obj.id+'" onclick="bookFlight(this)" type="button">BOOK NOW</button>' +
+            '</div>' +
+            '</div>' +
+            '<div class="col-4"></div>' +
+            '</div>' +
+            '</main>' +
+            '</div>' +
+            '<div class="col-3 mt-5"></div>' +
+            '</div>' +
+            '</div>';
+    }
+    else{
+        console.log("no flight");
+    }
+</script>
+</body>
+
+</body>
+</html>

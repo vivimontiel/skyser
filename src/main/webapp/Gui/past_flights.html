@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+    <script src="js/modernizr.js"></script> <!-- Modernizr -->
+
+    <link rel="stylesheet" href="formulaire/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="formulaire/css/style.css"> <!-- Resource style -->
+    <script src="formulaire/js/modernizr.js"></script> <!-- Modernizr -->
+
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/main.js"></script> <!-- Resource jQuery -->
+    <script src="js/core.js"></script>
+
+    <title>Share the sky with skyser</title>
+</head>
+<body>
+    <header>
+		<div class="cd-logo"><a href="index.html"><img src="img/logo.png" alt="Logo"></a></div>
+
+		<nav class="cd-main-nav-wrapper" id="dynamic-nav-header">
+			<script>
+				dynamicHeader()
+			</script>
+			<!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
+
+		<a href="#5" class="cd-nav-trigger">Menu<span></span></a>
+	</header>
+
+<div class="container-fluid pt-3">
+    <main class="cd-main-content">
+        <div class="row">
+            <div class="col-2"></div>
+
+            <div class="col-8" style="background-color: rgba(255,255,255,0.4);">
+                <h1 class="display-4 text-center mt-5">My past flights</h1>
+                <div class="container mb-5">
+                    <form>
+
+                    </form>
+                </div>
+                <div class="container mb-5 " id="demo">
+
+                    <div class="row">
+                        <div class="col-0"></div>
+
+                        <div class="cd-pricing-container cd-full-width cd-secondary-theme col-12">
+                            <ul class="cd-pricing-list" id="listflight">
+                                <script>
+                                    var flight = localStorage.getItem('myflightsPassenger');
+                                    if (flight != null) {
+                                        console.log("on est dans le if");
+                                        var obj = JSON.parse(flight);
+                                        console.log(obj);
+                                        for (var i = 0; i < obj.length; i++) {
+                                            console.log(obj[i]);
+                                            var html = document.getElementById("listflight");
+                                            var node = document.createElement("li");
+                                            node.innerHTML =
+                                                '<div class="cd-pricing-header">' +
+                                                '<h2>One-way</h2>' +
+
+                                                '<div class="cd-price">' +
+                                                '<span class="cd-currency">€</span>' +
+                                                '<span class="cd-value" id="price">' + obj[i].price + '</span>' +
+                                                '<span class="cd-duration">person</span>' +
+                                                '</div>' +
+                                                '</div>' +
+
+                                                '<div class="cd-pricing-body" id="'+obj[i].id+'" onclick="listToSummary(this)">' +
+                                                '<ul class="cd-pricing-features">' +
+                                                '<li>Departure<em id="departure">' + obj[i].departure_location + '</em></li>' +
+                                                '<li>Destination<em id="destination">' + obj[i].arrival_location + '</em></li>' +
+                                                '<li>Date<em id="departure_date">' + obj[i].departure_date + '</em></li>' +
+                                                '<li>Time<em id="departure_time">' + obj[i].departure_time + '</em></li>' +
+                                                '</ul>' +
+                                                '</div>';
+                                            html.appendChild(node);
+                                        }
+                                    } else {
+                                        console.log("on est dans le else");
+                                        alert("Nothing found");
+                                    }
+                                </script>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-0"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+    </main>
+</div>
+
+
+<script src="formulaire/js/jquery-2.1.1.js"></script>
+<script src="formulaire/js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
